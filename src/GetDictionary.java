@@ -15,9 +15,9 @@ public class GetDictionary {
 			List<String> lines = new ArrayList<String>();
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null) {
-				String[] words = line.split("\\s+");
+				String[] words = line.split("[\\p{Punct}\\s]+");
 				for(String word:words){
-					lines.add(word);
+					lines.add(word.toLowerCase());
 				}
 //				lines.add(line.split("\\s+"));
 			}
