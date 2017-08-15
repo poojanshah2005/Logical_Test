@@ -15,7 +15,11 @@ public class GetDictionary {
 			List<String> lines = new ArrayList<String>();
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null) {
-				lines.add(line);
+				String[] words = line.split("\\s+");
+				for(String word:words){
+					lines.add(word);
+				}
+//				lines.add(line.split("\\s+"));
 			}
 			bufferedReader.close();
 			return lines.toArray(new String[lines.size()]);
