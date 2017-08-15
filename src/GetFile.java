@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetDictionary {
+public class GetFile {
 
-	public String[] readLines(String filename) {
+	public String[] readWords(String filename) {
 		try{
 			String filePath = new File(filename).getAbsolutePath();
 			FileReader fileReader = new FileReader(filePath);

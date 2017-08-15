@@ -5,14 +5,10 @@ import java.util.logging.Logger;
 public class main {
 
 	public static void main(String[] args) {
-		GetDictionary getDictionary = new GetDictionary();
+		GetFile getFile = new GetFile();
 		
-		String[] splitWords = getDictionary.readLines("Railway-Children-by-E-Nesbit.txt");
-		
-//		for(String s:splitWords){
-//			System.out.println(s);
-//		}
-		
+		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
+				
 		Map<String, Integer> occurrences = new HashMap<String, Integer>();
 		
 		for ( String word : splitWords ) {
