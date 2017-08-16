@@ -21,16 +21,16 @@ public class GetFile {
 			String filePath = new File(filename).getAbsolutePath();
 			FileReader fileReader = new FileReader(filePath);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			List<String> lines = new ArrayList<String>();
+			List<String> listOfWords = new ArrayList<String>();
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null) {
 				String[] words = line.split("[\\p{Punct}\\s]+");
 				for(String word : words){
-					lines.add(word.toLowerCase());
+					listOfWords.add(word.toLowerCase());
 				}
 			}
 			bufferedReader.close();
-			return lines.toArray(new String[lines.size()]);
+			return listOfWords.toArray(new String[listOfWords.size()]);
 		}
 		catch(IOException e){
 			e.printStackTrace();
