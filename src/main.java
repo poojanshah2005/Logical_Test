@@ -31,8 +31,7 @@ public class main {
 			      oldCount = 0;
 			   }
 			   occurrences.put(word, oldCount + 1);
-			}
-		
+			}		
 		return occurrences;	
 	}
 	
@@ -41,7 +40,7 @@ public class main {
 	 * @param occurrences List by words
 	 * @return List by word by number of occurrences
 	 */
-	private static Map<String, Integer>sortList (Map<String, Integer> occurrences){
+	private static Map<String, Integer>sortList(Map<String, Integer> occurrences){
 		return occurrences.entrySet().stream()
 			    .sorted(Entry.comparingByValue())
 			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
