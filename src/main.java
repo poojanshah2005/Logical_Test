@@ -33,11 +33,6 @@ public class main {
 			   occurrences.put(word, oldCount + 1);
 			}
 		
-		occurrences = occurrences.entrySet().stream()
-	    .sorted(Entry.comparingByValue())
-	    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
-	                              (e1, e2) -> e1, LinkedHashMap::new));
-		
 		return occurrences;	
 	}
 	
