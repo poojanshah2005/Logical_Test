@@ -5,13 +5,28 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class main {
+	
+	private static Map<String, Integer> occurrences;
+	private static String[] splitWords;
+
+	public static String[] getSplitWords() {
+		return splitWords;
+	}
+
+	public static void setSplitWords(String[] splitWords) {
+		main.splitWords = splitWords;
+	}
+
+	public static Map<String, Integer> getOccurrences() {
+		return occurrences;
+	}
 
 	public static void main(String[] args) {
 		GetFile getFile = new GetFile();
 
-		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
+		splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
 
-		Map<String, Integer> occurrences = getOccurrences(splitWords);
+		occurrences = getOccurrences(splitWords);
 
 		occurrences = sortList(occurrences);
 		
