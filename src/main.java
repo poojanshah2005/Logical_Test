@@ -14,7 +14,9 @@ public class main {
 		Map<String, Integer> occurrences = getOccurrences(splitWords);
 
 		occurrences = sortList(occurrences);
+		
 		printOccurrencesNonPrime(occurrences);
+		
 		printOccurrencesPrime(occurrences);
 	}
 
@@ -54,7 +56,7 @@ public class main {
 	private static void printOccurrencesPrime(Map<String, Integer> occurrences){
 		for ( String word : occurrences.keySet() ) {
 			if(isPrime(occurrences.get(word))){
-				System.out.println(word + " : " + occurrences.get(word));
+				System.out.println(word + " : " + occurrences.get(word) + " Prime");
 			}			
 		}
 	}
@@ -65,7 +67,9 @@ public class main {
 	 */
 	private static void printOccurrencesNonPrime(Map<String, Integer> occurrences){
 		for ( String word : occurrences.keySet() ) {
-				System.out.println(word + " : " + occurrences.get(word));
+			if(!isPrime(occurrences.get(word))){
+				System.out.println(word + " : " + occurrences.get(word) + " NonPrime");
+			}	
 		}
 	}
 
