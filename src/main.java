@@ -1,5 +1,8 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class main {
 
@@ -9,6 +12,8 @@ public class main {
 		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
 				
 		Map<String, Integer> occurrences = getOccurrences(splitWords);
+		
+		occurrences = sortList(occurrences);
 		
 		printOccurrences(occurrences);
 	}
@@ -27,7 +32,26 @@ public class main {
 			   }
 			   occurrences.put(word, oldCount + 1);
 			}
+		
+		occurrences = occurrences.entrySet().stream()
+	    .sorted(Entry.comparingByValue())
+	    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+	                              (e1, e2) -> e1, LinkedHashMap::new));
+		
 		return occurrences;	
+	}
+	
+	/**
+	 * Sorting List by number of occurrences
+	 * @param occurrences List by words
+	 * @return List by word by number of occurrences
+	 */
+	private static Map<String, Integer>sortList (Map<String, Integer> occurrences){
+		return occurrences.entrySet().stream()
+			    .sorted(Entry.comparingByValue())
+			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+			                              (e1, e2) -> e1, LinkedHashMap::new));
+		
 	}
 	
 	/**
