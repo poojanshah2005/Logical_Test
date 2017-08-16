@@ -8,16 +8,16 @@ public class main {
 
 	public static void main(String[] args) {
 		GetFile getFile = new GetFile();
-		
+
 		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
-				
+
 		Map<String, Integer> occurrences = getOccurrences(splitWords);
-		
+
 		occurrences = sortList(occurrences);
-		
+
 		printOccurrences(occurrences);
 	}
-	
+
 	/**
 	 * Getting list of words with number of occurrences
 	 * @param splitWords List of words
@@ -26,15 +26,15 @@ public class main {
 	private static Map<String, Integer> getOccurrences(String[] splitWords){
 		Map<String, Integer> occurrences = new HashMap<String, Integer>();
 		for ( String word : splitWords ) {
-			   Integer oldCount = occurrences.get(word);
-			   if ( oldCount == null ) {
-			      oldCount = 0;
-			   }
-			   occurrences.put(word, oldCount + 1);
-			}		
+			Integer oldCount = occurrences.get(word);
+			if ( oldCount == null ) {
+				oldCount = 0;
+			}
+			occurrences.put(word, oldCount + 1);
+		}		
 		return occurrences;	
 	}
-	
+
 	/**
 	 * Sorting List by number of occurrences
 	 * @param occurrences List by words
@@ -42,12 +42,11 @@ public class main {
 	 */
 	private static Map<String, Integer>sortList(Map<String, Integer> occurrences){
 		return occurrences.entrySet().stream()
-			    .sorted(Entry.comparingByValue())
-			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
-			                              (e1, e2) -> e1, LinkedHashMap::new));
-		
+				.sorted(Entry.comparingByValue())
+				.collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+						(e1, e2) -> e1, LinkedHashMap::new));
 	}
-	
+
 	/**
 	 * Displaying Occurrences 
 	 * @param occurrences List of Words along with number of occurrences in the book
@@ -57,21 +56,21 @@ public class main {
 			if(isPrime(occurrences.get(word))){
 				System.out.println(word + " : " + occurrences.get(word));
 			}			
-			}
+		}
 	}
-	
+
 	/**
 	 * Is this number a prime number
 	 * @param num the number to check
 	 * @return true or false
 	 */
 	private static boolean isPrime(int num) {
-        if (num < 2) return false;
-        if (num == 2) return true;
-        if (num % 2 == 0) return false;
-        for (int i = 3; i * i <= num; i += 2)
-            if (num % i == 0) return false;
-        return true;
-}
+		if (num < 2) return false;
+		if (num == 2) return true;
+		if (num % 2 == 0) return false;
+		for (int i = 3; i * i <= num; i += 2)
+			if (num % i == 0) return false;
+		return true;
+	}
 
 }
