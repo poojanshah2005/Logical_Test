@@ -13,8 +13,8 @@ public class GetFile {
 
 	/**
 	 * Helper Method to load words
-	 * @param filename
-	 * @return
+	 * @param filename File location
+	 * @return splitWords list of all words
 	 */
 	public String[] readWords(String filename) {
 		try{
@@ -25,10 +25,9 @@ public class GetFile {
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null) {
 				String[] words = line.split("[\\p{Punct}\\s]+");
-				for(String word:words){
+				for(String word : words){
 					lines.add(word.toLowerCase());
 				}
-//				lines.add(line.split("\\s+"));
 			}
 			bufferedReader.close();
 			return lines.toArray(new String[lines.size()]);

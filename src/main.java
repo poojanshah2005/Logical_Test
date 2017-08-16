@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class main {
 
@@ -13,6 +12,7 @@ public class main {
 		
 		printOccurrences(occurrences);
 	}
+	
 	/**
 	 * Getting list of words with number of occurrences
 	 * @param splitWords List of words
@@ -29,6 +29,7 @@ public class main {
 			}
 		return occurrences;	
 	}
+	
 	/**
 	 * Displaying Occurrences 
 	 * @param occurrences List of Words along with number of occurrences in the book
@@ -41,11 +42,10 @@ public class main {
 			}
 	}
 	
-	
 	/**
 	 * Is this number a prime number
 	 * @param num the number to check
-	 * @return ture or false
+	 * @return true or false
 	 */
 	private static boolean isPrime(int num) {
         if (num < 2) return false;
