@@ -14,8 +14,8 @@ public class main {
 		Map<String, Integer> occurrences = getOccurrences(splitWords);
 
 		occurrences = sortList(occurrences);
-
-		printOccurrences(occurrences);
+		printOccurrencesNonPrime(occurrences);
+		printOccurrencesPrime(occurrences);
 	}
 
 	/**
@@ -51,11 +51,21 @@ public class main {
 	 * Displaying Occurrences 
 	 * @param occurrences List of Words along with number of occurrences in the book
 	 */
-	private static void printOccurrences(Map<String, Integer> occurrences){
+	private static void printOccurrencesPrime(Map<String, Integer> occurrences){
 		for ( String word : occurrences.keySet() ) {
 			if(isPrime(occurrences.get(word))){
 				System.out.println(word + " : " + occurrences.get(word));
 			}			
+		}
+	}
+	
+	/**
+	 * Displaying Occurrences 
+	 * @param occurrences List of Words along with number of occurrences in the book
+	 */
+	private static void printOccurrencesNonPrime(Map<String, Integer> occurrences){
+		for ( String word : occurrences.keySet() ) {
+				System.out.println(word + " : " + occurrences.get(word));
 		}
 	}
 
