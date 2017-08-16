@@ -4,9 +4,18 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Helper Class to load file and to get words
+ * @author shahp
+ *
+ */
 public class GetFile {
 
+	/**
+	 * Helper Method to load words
+	 * @param filename
+	 * @return
+	 */
 	public String[] readWords(String filename) {
 		try{
 			String filePath = new File(filename).getAbsolutePath();

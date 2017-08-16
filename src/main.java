@@ -9,8 +9,17 @@ public class main {
 		
 		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
 				
-		Map<String, Integer> occurrences = new HashMap<String, Integer>();
+		Map<String, Integer> occurrences = getOccurrences(splitWords);
 		
+		printOccurrences(occurrences);
+	}
+	/**
+	 * Getting list of words with number of occurrences
+	 * @param splitWords List of words
+	 * @return
+	 */
+	private static Map<String, Integer> getOccurrences(String[] splitWords){
+		Map<String, Integer> occurrences = new HashMap<String, Integer>();
 		for ( String word : splitWords ) {
 			   Integer oldCount = occurrences.get(word);
 			   if ( oldCount == null ) {
@@ -18,14 +27,26 @@ public class main {
 			   }
 			   occurrences.put(word, oldCount + 1);
 			}
-		
+		return occurrences;	
+	}
+	/**
+	 * Displaying Occurrences 
+	 * @param occurrences List of Words along with number of occurrences in the book
+	 */
+	private static void printOccurrences(Map<String, Integer> occurrences){
 		for ( String word : occurrences.keySet() ) {
-			if(isPrime(occurrences.get(word)))
-			System.out.println(word + " : " + occurrences.get(word));
-			
+			if(isPrime(occurrences.get(word))){
+				System.out.println(word + " : " + occurrences.get(word));
+			}			
 			}
 	}
 	
+	
+	/**
+	 * Is this number a prime number
+	 * @param num the number to check
+	 * @return ture or false
+	 */
 	private static boolean isPrime(int num) {
         if (num < 2) return false;
         if (num == 2) return true;
