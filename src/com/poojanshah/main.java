@@ -37,10 +37,6 @@ public class main {
 
 		occurrences = sortList(occurrences);
 		
-//		printOccurrencesNonPrime(occurrences);
-//		
-//		printOccurrencesPrime(occurrences);
-		
 		printOccurrences(occurrences);
 	}
 
@@ -77,36 +73,12 @@ public class main {
 	 * Displaying Occurrences 
 	 * @param occurrences List of Words along with number of occurrences in the book
 	 */
-	private static void printOccurrencesPrime(Map<String, Integer> occurrences){
-		for ( String word : occurrences.keySet() ) {
-			if(isPrime(occurrences.get(word))){
-				System.out.println(word + " : " + occurrences.get(word) + " Prime");
-			}			
-		}
-	}
-	
-	/**
-	 * Displaying Occurrences 
-	 * @param occurrences List of Words along with number of occurrences in the book
-	 */
 	public static void printOccurrences(Map<String, Integer> occurrences){
 		for ( String word : occurrences.keySet() ) {
 				System.out.println(word + " : " + occurrences.get(word) + " Prime? : " + isPrime(occurrences.get(word)));			
 		}
 	}
 	
-	/**
-	 * Displaying Occurrences 
-	 * @param occurrences List of Words along with number of occurrences in the book
-	 */
-	private static void printOccurrencesNonPrime(Map<String, Integer> occurrences){
-		for ( String word : occurrences.keySet() ) {
-			if(!isPrime(occurrences.get(word))){
-				System.out.println(word + " : " + occurrences.get(word) + " NonPrime");
-			}	
-		}
-	}
-
 	/**
 	 * Is this number a prime number
 	 * @param num the number to check
