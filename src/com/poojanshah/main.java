@@ -83,7 +83,7 @@ public class main {
 	 * Displaying Occurrences 
 	 * @param occurrences List of Words along with number of occurrences in the book
 	 */
-	private static void printOccurrences(Map<String, Integer> occurrences){
+	public static void printOccurrences(Map<String, Integer> occurrences){
 		for ( String word : occurrences.keySet() ) {
 				System.out.println(word + " : " + occurrences.get(word) + " Prime? : " + isPrime(occurrences.get(word)));			
 		}
@@ -106,7 +106,7 @@ public class main {
 	 * @param num the number to check
 	 * @return true or false
 	 */
-	private static boolean isPrime(int num) {
+	public static boolean isPrime(int num) {
 		if (num < 2) return false;
 		if (num == 2) return true;
 		if (num % 2 == 0) return false;
