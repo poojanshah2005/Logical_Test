@@ -23,6 +23,7 @@ public class TestMethods {
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	Map<String, Integer> occurrences;
 	ArrayList<String> resultsTrue;
+	ArrayList<String> resultsFalse;
 
 	@Before
 	public void setUpStreams() {
@@ -53,6 +54,19 @@ public class TestMethods {
 		resultsTrue.add("to : 1553 Prime? : true");
 		resultsTrue.add("and : 2473 Prime? : true");
 		resultsTrue.add("the : 3366 Prime? : false");
+		
+		resultsFalse = new ArrayList<>();
+		
+		resultsFalse.add("was : 840 Prime? : true");
+		resultsFalse.add("i : 1019 Prime? : false");
+		resultsFalse.add("you : 1039 Prime? : false");
+		resultsFalse.add("of : 1058 Prime? : true");
+		resultsFalse.add("said : 1145 Prime? : true");
+		resultsFalse.add("it : 1161 Prime? : true");
+		resultsFalse.add("a : 1181 Prime? : false");
+		resultsFalse.add("to : 1553 Prime? : false");
+		resultsFalse.add("and : 2473 Prime? : false");
+		resultsFalse.add("the : 3366 Prime? : true");
 			
 				
 	}
@@ -89,6 +103,16 @@ public class TestMethods {
 		main.printOccurrences(occurrences);
 	    for(String value:resultsTrue){
 	        assertTrue("Does not contain: " + value ,outContent.toString().contains(value));
+	    }
+	}
+	
+	@Test
+	public void gettingIncorrectCountedPrintedWordsLoop() {
+
+
+		main.printOccurrences(occurrences);
+	    for(String value:resultsFalse){
+	        assertFalse("Does contain: " + value ,outContent.toString().contains(value));
 	    }
 	}
 
