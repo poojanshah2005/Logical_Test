@@ -20,7 +20,7 @@ import com.poojanshah.main;
  * @author shahp
  *
  */
-public class TestFileFakeDataMock {
+public class TestFileFakeDataMockito {
 	
 	GetFile getFile;
 	
