@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class TestMethods {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	Map<String, Integer> occurrences;
-	Map<String, Boolean> results;
+	ArrayList<String> resultsTrue;
 
 	@Before
 	public void setUpStreams() {
@@ -40,17 +41,18 @@ public class TestMethods {
 		occurrences.put("and", 2473 );
 		occurrences.put("the", 3366);
 		
-		results =new HashMap<String, Boolean>();
-		results.put("was : 840 Prime? : false", false);
-		results.put("i : 1019 Prime? : true",  false );
-		results.put("you : 1039 Prime? : true", true );
-		results.put("of : 1058 Prime? : false" , true );
-		results.put("said : 1145 Prime? : false", false );
-		results.put("it : 1161 Prime? : false", false );
-		results.put("a : 1181 Prime? : true", false);
-		results.put("to : 1553 Prime? : true", true );
-		results.put("and : 2473 Prime? : true", true );
-		results.put("the : 3366 Prime? : false", true );
+		resultsTrue = new ArrayList<>();
+		
+		resultsTrue.add("was : 840 Prime? : false");
+		resultsTrue.add("i : 1019 Prime? : true");
+		resultsTrue.add("you : 1039 Prime? : true");
+		resultsTrue.add("of : 1058 Prime? : false");
+		resultsTrue.add("said : 1145 Prime? : false");
+		resultsTrue.add("it : 1161 Prime? : false");
+		resultsTrue.add("a : 1181 Prime? : true");
+		resultsTrue.add("to : 1553 Prime? : true");
+		resultsTrue.add("and : 2473 Prime? : true");
+		resultsTrue.add("the : 3366 Prime? : false");
 			
 				
 	}
@@ -85,14 +87,9 @@ public class TestMethods {
 
 
 		main.printOccurrences(occurrences);
-		Iterator it = results.entrySet().iterator();
-	    while (it.hasNext()) {
-	        Map.Entry pair = (Map.Entry)it.next();
-	        System.out.println(pair.getKey() + " = " + pair.getValue());
-	        assertTrue(outContent.toString().contains((CharSequence) pair.getKey()));
-	        it.remove(); // avoids a ConcurrentModificationException
+	    for(String value:resultsTrue){
+	        assertTrue("Does not contain: " + value ,outContent.toString().contains(value));
 	    }
-//		assertTrue(outContent.toString().contains("the : 3366 Prime? : false"));
 	}
 
 
