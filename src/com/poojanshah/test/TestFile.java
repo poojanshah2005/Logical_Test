@@ -69,12 +69,8 @@ public class TestFile {
 				
 		Map<String, Integer> occurrences =new HashMap<String, Integer>();
 		occurrences.put("the", 3366);
-			
-		main.printOccurrences(occurrences);
-		
-		System.out.println();
-//		assertEquals(true, "the : 3366 Prime? : false".equals(outContent.toString()));	
-		assertEquals("the : 3366 Prime? : false\n", outContent.toString());		
+		main.printOccurrences(occurrences);		
+		assertTrue(outContent.toString().contains("the : 3366 Prime? : false"));
     }
 	
 	@Test
