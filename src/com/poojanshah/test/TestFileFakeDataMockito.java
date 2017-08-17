@@ -1,10 +1,5 @@
 package com.poojanshah.test;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.Map;
 import static org.mockito.Mockito.*;
 

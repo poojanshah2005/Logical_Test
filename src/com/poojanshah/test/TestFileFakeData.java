@@ -1,10 +1,5 @@
 package com.poojanshah.test;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.After;
@@ -12,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.poojanshah.GetFile;
 import com.poojanshah.main;
 /**
  * Testing the getting values and to check if it has correct values 
