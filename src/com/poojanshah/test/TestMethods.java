@@ -1,12 +1,12 @@
 package com.poojanshah.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.junit.After;
@@ -14,7 +14,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.poojanshah.GetFile;
 import com.poojanshah.main;
 
 public class TestMethods {
@@ -26,7 +25,7 @@ public class TestMethods {
 	ArrayList<String> resultsFalse;
 
 	@Before
-	public void setUpStreams() {
+	public void setUp() {
 		System.setOut(new PrintStream(outContent));
 		System.setErr(new PrintStream(errContent));
 		occurrences =new HashMap<String, Integer>();
@@ -41,9 +40,9 @@ public class TestMethods {
 		occurrences.put("to", 1553 );
 		occurrences.put("and", 2473 );
 		occurrences.put("the", 3366);
-		
+
 		resultsTrue = new ArrayList<>();
-		
+
 		resultsTrue.add("was : 840 Prime? : false");
 		resultsTrue.add("i : 1019 Prime? : true");
 		resultsTrue.add("you : 1039 Prime? : true");
@@ -54,9 +53,9 @@ public class TestMethods {
 		resultsTrue.add("to : 1553 Prime? : true");
 		resultsTrue.add("and : 2473 Prime? : true");
 		resultsTrue.add("the : 3366 Prime? : false");
-		
+
 		resultsFalse = new ArrayList<>();
-		
+
 		resultsFalse.add("was : 840 Prime? : true");
 		resultsFalse.add("i : 1019 Prime? : false");
 		resultsFalse.add("you : 1039 Prime? : false");
@@ -67,19 +66,16 @@ public class TestMethods {
 		resultsFalse.add("to : 1553 Prime? : false");
 		resultsFalse.add("and : 2473 Prime? : false");
 		resultsFalse.add("the : 3366 Prime? : true");
-			
-				
 	}
 
 	@After
-	public void cleanUpStreams() {
+	public void cleanUp() {
 		System.setOut(null);
 		System.setErr(null);
 	}
 
 	@Test
 	public void isPrimeFunctionWorking() {
-
 		Assert.assertEquals(true, main.isPrime(2));
 		Assert.assertEquals(true, main.isPrime(3));
 		Assert.assertEquals(true, main.isPrime(7));
@@ -90,32 +86,24 @@ public class TestMethods {
 
 	@Test
 	public void gettingCorrectCountedPrintedWordsOne() {
-
-
 		main.printOccurrences(occurrences);		
 		assertTrue(outContent.toString().contains("the : 3366 Prime? : false"));
 	}
-	
+
 	@Test
 	public void gettingCorrectCountedPrintedWordsLoop() {
-
-
 		main.printOccurrences(occurrences);
-	    for(String value:resultsTrue){
-	        assertTrue("Does not contain: " + value ,outContent.toString().contains(value));
-	    }
+		for(String value:resultsTrue){
+			assertTrue("Does not contain: " + value ,outContent.toString().contains(value));
+		}
 	}
-	
+
 	@Test
 	public void gettingIncorrectCountedPrintedWordsLoop() {
-
-
 		main.printOccurrences(occurrences);
-	    for(String value:resultsFalse){
-	        assertFalse("Does contain: " + value ,outContent.toString().contains(value));
-	    }
+		for(String value:resultsFalse){
+			assertFalse("Does contain: " + value ,outContent.toString().contains(value));
+		}
 	}
-
-
 
 }
