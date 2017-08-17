@@ -16,7 +16,7 @@ import org.junit.Test;
 
 import com.poojanshah.main;
 /**
- * Testing methods that display prime and none prime words and theird counts
+ * Testing methods that display prime and none prime words and their counts
  * @author shahp
  *
  */
