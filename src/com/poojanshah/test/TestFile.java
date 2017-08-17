@@ -14,12 +14,19 @@ import org.junit.Test;
 
 import com.poojanshah.GetFile;
 import com.poojanshah.main;
-
+/**
+ * Testing the getting values and to check if it has correct values 
+ * @author shahp
+ *
+ */
 public class TestFile {
 	
 	GetFile getFile;
 	String[] splitWords;
 	
+	/**
+	 * Setting up before each test, to remove duplicate code.
+	 */
 	@Before
 	public void setup(){
 		getFile = new GetFile();
@@ -27,25 +34,35 @@ public class TestFile {
 		
 	}
 	
+	/**
+	 * Cleaning up on method
+	 */
 	@After
 	public void cleanUp() {
 		
 	}
 	
+	/**
+	 * Ensure correct number of words in file
+	 */
 	@Test
     public void gettingWordsFromFile() {
 		
 		Assert.assertEquals(66101, splitWords.length);
     }
 	
-	
+	/**
+	 * Ensure correct number unique of words in file
+	 */
 	@Test
     public void CountingWords() {		
 		Map<String, Integer> occurrences = main.getOccurrences(splitWords);
 		
 		Assert.assertEquals(4705, occurrences.size());
     }
-	
+	/**
+	 * Ensure correct number unique of words in file and count
+	 */
 	@Test
     public void gettingCorrectCountedWords() {
 				

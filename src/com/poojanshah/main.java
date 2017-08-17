@@ -21,7 +21,13 @@ public class main {
 	public static Map<String, Integer> getOccurrences() {
 		return occurrences;
 	}
-
+	/**
+	 * 1. Getting words from file
+	 * 2. counting words
+	 * 3. sorting list by count
+	 * 4. displaying Results
+	 * @param args command line args
+	 */
 	public static void main(String[] args) {
 		GetFile getFile = new GetFile();
 
@@ -41,7 +47,7 @@ public class main {
 	/**
 	 * Getting list of words with number of occurrences
 	 * @param splitWords List of words
-	 * @return
+	 * @return List by word by number of occurrences
 	 */
 	public static Map<String, Integer> getOccurrences(String[] splitWords){
 		Map<String, Integer> occurrences = new HashMap<String, Integer>();

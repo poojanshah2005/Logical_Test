@@ -15,7 +15,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.poojanshah.main;
-
+/**
+ * Testing methods that display prime and none prime words and theird counts
+ * @author shahp
+ *
+ */
 public class TestMethods {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -23,7 +27,11 @@ public class TestMethods {
 	Map<String, Integer> occurrences;
 	ArrayList<String> resultsTrue;
 	ArrayList<String> resultsFalse;
-
+	
+	/**
+	 * Setting up for getting PrintStream and
+	 * added values for results for correct and incorrect values
+	 */
 	@Before
 	public void setUp() {
 		System.setOut(new PrintStream(outContent));
@@ -68,12 +76,18 @@ public class TestMethods {
 		resultsFalse.add("the : 3366 Prime? : true");
 	}
 
+	/**
+	 * cleaning up system printStreams after each test
+	 */
 	@After
 	public void cleanUp() {
 		System.setOut(null);
 		System.setErr(null);
 	}
-
+	
+	/**
+	 * Checking if the isPrimeNumber is working correctly
+	 */
 	@Test
 	public void isPrimeFunctionWorking() {
 		Assert.assertEquals(true, main.isPrime(2));
@@ -83,13 +97,19 @@ public class TestMethods {
 		Assert.assertEquals(false, main.isPrime(12));
 		Assert.assertEquals(false, main.isPrime(15));
 	}
-
+	
+	/**
+	 * Testing if displaying correct message with prime number
+	 */
 	@Test
 	public void gettingCorrectCountedPrintedWordsOne() {
 		main.printOccurrences(occurrences);		
 		assertTrue(outContent.toString().contains("the : 3366 Prime? : false"));
 	}
-
+	
+	/**
+	 * Testing if displaying correct message with prime number for a list of values
+	 */
 	@Test
 	public void gettingCorrectCountedPrintedWordsLoop() {
 		main.printOccurrences(occurrences);
@@ -98,6 +118,9 @@ public class TestMethods {
 		}
 	}
 
+	/**
+	 * Testing if displaying incorrect message with prime number for a list of values
+	 */
 	@Test
 	public void gettingIncorrectCountedPrintedWordsLoop() {
 		main.printOccurrences(occurrences);
