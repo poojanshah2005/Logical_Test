@@ -3,6 +3,7 @@ package com.poojanshah.test;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.poojanshah.GetFile;
@@ -10,24 +11,27 @@ import com.poojanshah.main;
 
 public class TestFile {
 	
-	@Test
-    public void gettingWords() {
-		
-		GetFile getFile = new GetFile();
+	GetFile getFile;
 
-		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
+	String[] splitWords;
+	
+	@Before
+	public void setup(){
+		getFile = new GetFile();
+
+		splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
+		
+	}
+	
+	@Test
+    public void gettingWordsFromFile() {
 		
 		Assert.assertEquals(66101, splitWords.length);
     }
 	
 	
 	@Test
-    public void gettingCountedWords() {
-		
-		GetFile getFile = new GetFile();
-
-		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
-		
+    public void CountingWords() {		
 		Map<String, Integer> occurrences = main.getOccurrences(splitWords);
 		
 		Assert.assertEquals(4705, occurrences.size());
@@ -35,11 +39,7 @@ public class TestFile {
 	
 	@Test
     public void gettingCorrectCountedWords() {
-		
-		GetFile getFile = new GetFile();
-
-		String[] splitWords = getFile.readWords("Railway-Children-by-E-Nesbit.txt");
-		
+				
 		Map<String, Integer> occurrences = main.getOccurrences(splitWords);
 		
 		Assert.assertEquals(4705, occurrences.size());
