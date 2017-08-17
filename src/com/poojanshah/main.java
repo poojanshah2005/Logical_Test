@@ -1,3 +1,4 @@
+package com.poojanshah;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -30,9 +31,11 @@ public class main {
 
 		occurrences = sortList(occurrences);
 		
-		printOccurrencesNonPrime(occurrences);
+//		printOccurrencesNonPrime(occurrences);
+//		
+//		printOccurrencesPrime(occurrences);
 		
-		printOccurrencesPrime(occurrences);
+		printOccurrences(occurrences);
 	}
 
 	/**
@@ -40,7 +43,7 @@ public class main {
 	 * @param splitWords List of words
 	 * @return
 	 */
-	private static Map<String, Integer> getOccurrences(String[] splitWords){
+	public static Map<String, Integer> getOccurrences(String[] splitWords){
 		Map<String, Integer> occurrences = new HashMap<String, Integer>();
 		for ( String word : splitWords ) {
 			Integer oldCount = occurrences.get(word);
@@ -73,6 +76,16 @@ public class main {
 			if(isPrime(occurrences.get(word))){
 				System.out.println(word + " : " + occurrences.get(word) + " Prime");
 			}			
+		}
+	}
+	
+	/**
+	 * Displaying Occurrences 
+	 * @param occurrences List of Words along with number of occurrences in the book
+	 */
+	private static void printOccurrences(Map<String, Integer> occurrences){
+		for ( String word : occurrences.keySet() ) {
+				System.out.println(word + " : " + occurrences.get(word) + " Prime? : " + isPrime(occurrences.get(word)));			
 		}
 	}
 	
